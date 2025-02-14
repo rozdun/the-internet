@@ -17,6 +17,7 @@ test.describe('Download', () => {
         await expect(page.getByRole("heading", { name: "File Downloader" })).toBeVisible()
     })
 
+    // Loop through each file type and check for its content
     datasets.forEach(({ filetype, filename, expectedText, expectedText2}) => {
         test(`Download - ${filetype}`, async ({ page }) => {
             await page.goto('/download')
