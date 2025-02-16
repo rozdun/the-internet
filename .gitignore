@@ -1,0 +1,4 @@
+node_modules/
+test-results/
+eng.traineddata
+eslint.config.mjs
