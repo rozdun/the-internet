@@ -8,5 +8,5 @@ test("Large & Deep DOM", async ({ page }) => {
     await expect(sibling45).toContainText('45.1')
     
     const cell4616 = page.locator('.row-46 > .column-16')
-    expect(cell4616).toHaveText('46.16')
+    await expect(cell4616).toHaveText('46.16')
 })

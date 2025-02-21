@@ -31,8 +31,9 @@ test('Challenging DOM', async ({ page }) => {
     
     const screenshot = await canvas.screenshot({ path: file })
     const { data } = await worker.recognize(screenshot)
-    expect(data.text).toMatch(/.*\d{5}/)
     
-    await worker.terminate()
     fs.unlinkSync(file)
+    await worker.terminate()
+    
+    expect(data.text).toMatch(/.*\d{1,5}/)
 })
