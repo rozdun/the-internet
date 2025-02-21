@@ -1,14 +1,17 @@
 import { test, expect } from "@playwright/test"
 
-test.describe("Shifting Content", () => {
-    test("Menu Element", async ({ page }) => {
-        await page.goto('/shifting_content/menu?pixel_shift=100')
-        await expect(page.getByRole("heading", { name: "Shifting Content: Menu Element" })).toBeVisible()
-        
-        const galleryTab = page.locator('a').filter({ hasText: 'Gallery' })
-        const leftValue = await galleryTab.evaluate(el => getComputedStyle(el).left)
-        expect(leftValue).toBe('-100px')
+test("Shifting Content", async ({ page }) => {
+    await page.goto('/shifting_content/menu')
+    
+    const pixelShiftUrl = page.locator('p')
+                            .filter( { has: page.locator('code', { hasText: '?pixel_shift=100' }) })
+                            .locator('a', { hasText: 'click here' })
+    await pixelShiftUrl.click()
+    
+    const shiftElement = page.locator('.shift')
+    const leftOffset = await shiftElement.evaluate(el => {
+        return window.getComputedStyle(el).left
     })
     
-    
+    expect(leftOffset).toBe('-100px')
 })

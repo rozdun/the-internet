@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 const url = '/basic_auth'
 
-test('Basic Auth', async ({ browser }) => {
+test('Basic Auth - Success', async ({ browser }) => {
     const context = await browser.newContext({
         httpCredentials: {
           username: 'admin',
@@ -17,7 +17,7 @@ test('Basic Auth', async ({ browser }) => {
 })
 
 
-test('Basic Auth - Negative', async ({ browser }) => {
+test('Basic Auth - Failure', async ({ browser }) => {
     const context = await browser.newContext({
         httpCredentials: {
           username: 'incorrect',

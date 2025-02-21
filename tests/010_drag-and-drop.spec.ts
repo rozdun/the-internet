@@ -5,9 +5,10 @@ test("Drag and Drop", async ({ page }) => {
     await expect(page.getByRole("heading", { name: "Drag and Drop" })).toBeVisible()
     
     const columns = page.locator('#columns .column')
-    const columnA = columns.nth(0)
-    const columnB = columns.nth(1)
+    const source = columns.nth(0)
+    const target = columns.nth(1)
     
-    await columnA.dragTo(columnB)
-    await expect(columnA).toHaveText("B")
+    await source.dragTo(target)
+    await expect(source).toHaveText('B')
+    await expect(target).toHaveText('A')
 })

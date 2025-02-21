@@ -7,7 +7,7 @@ test("Redirect Link", async ({ page, request }) => {
     
     const redirect = page.locator('#redirect')
     let redirectResponse
-    
+
     page.on('response', async (response) => {
         if (response.url().endsWith('/redirect'))
             redirectResponse = response
@@ -15,7 +15,7 @@ test("Redirect Link", async ({ page, request }) => {
     
     await redirect.click()
     await expect(page).toHaveURL('/status_codes')
-    
+
     expect(redirectResponse).toBeDefined()
     expect(redirectResponse.status()).toBe(302)
 })

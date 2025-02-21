@@ -18,7 +18,7 @@ test('A/B Test', async ({ page, context, baseURL }) => {
     const url = new URL(baseURL)
     const domain = url.hostname
     
-    // Loop through versions
+    // Loop through page versions
     for (const version of versions) {
         await context.clearCookies()
         await context.addCookies([

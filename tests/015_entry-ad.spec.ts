@@ -52,7 +52,7 @@ test.describe('Entry Ad', () => {
     })
     
     test("Modal re-appears after re-enabling it", async ({ entryAdPage }) => {
-        entryAdPage.closeModal()
+        await entryAdPage.closeModal()
         await expect(entryAdPage.modal).not.toBeVisible()
         await entryAdPage.restartAd()
         await entryAdPage.restartAd()

@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { promises as fs } from 'fs'
 import path from 'path'
-import * as XLSX from 'xlsx'
 import { createWorker } from 'tesseract.js' 
 
 test.describe('Download', () => {
