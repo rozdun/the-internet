@@ -1,4 +1,4 @@
-Automated tests for https://the-internet.herokuapp.com/ using Playwright with Typescript.
+Automated tests for web elements on https://the-internet.herokuapp.com/ using Playwright with Typescript.
 
 Notable examples:
 | The Internet Feature | Tests |
